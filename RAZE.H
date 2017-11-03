@@ -49,42 +49,37 @@ extern "C" {
    } z80_register;
 
    /* Z80 main functions */
-   void __cdecl  z80_reset(void);
-   int  __cdecl z80_emulate(int cycles);
-   void __cdecl  z80_raise_IRQ(UBYTE vector);
-   void __cdecl  z80_lower_IRQ(void);
-   void __cdecl  z80_cause_NMI(void);
+   void  z80_reset(void);
+   int   z80_emulate(int cycles);
+   void  z80_raise_IRQ(UBYTE vector);
+   void  z80_lower_IRQ(void);
+   void  z80_cause_NMI(void);
 
    /* Z80 context functions */
-   int  __cdecl  z80_get_context_size(void);
-   void __cdecl  z80_set_context(void *context);
-   void __cdecl z80_get_context(void *context);
-   UWORD __cdecl z80_get_reg(z80_register reg);
-   void __cdecl z80_set_reg(z80_register reg, UWORD value);
+   int   z80_get_context_size(void);
+   void  z80_set_context(void *context);
+   void  z80_get_context(void *context);
+   UWORD z80_get_reg(z80_register reg);
+   void  z80_set_reg(z80_register reg, UWORD value);
 
    /* Z80 cycle functions */
-   int  __cdecl z80_get_cycles_elapsed(void);
-   void __cdecl  z80_stop_emulating(void);
-   void __cdecl  z80_skip_idle(void);
-   void __cdecl z80_do_wait_states(int n);
+   int   z80_get_cycles_elapsed(void);
+   void  z80_stop_emulating(void);
+   void  z80_skip_idle(void);
+   void  z80_do_wait_states(int n);
 
    /* Z80 I/O functions */
-   void __cdecl z80_init_memmap(void);
-   void __cdecl  z80_map_fetch(UWORD start, UWORD end, UBYTE *memory);
-   void __cdecl  z80_map_read(UWORD start, UWORD end, UBYTE *memory);
-   void __cdecl  z80_map_write(UWORD start, UWORD end, UBYTE *memory);
-   void __cdecl  z80_add_read(UWORD start, UWORD end, int method, void *data);
-   void __cdecl  z80_add_write(UWORD start, UWORD end, int method, void *data);
-   void __cdecl  z80_set_in(UBYTE (*handler)(UWORD port));
-   void __cdecl  z80_set_out(void (*handler)(UWORD port, UBYTE value));
-   void __cdecl  z80_set_reti(void (*handler)(void));
-   void __cdecl  z80_set_fetch_callback(void (*handler)(UWORD pc));
-   void __cdecl  z80_end_memmap(void);
-
-
-
-
-
+   void  z80_init_memmap(void);
+   void  z80_map_fetch(UWORD start, UWORD end, UBYTE *memory);
+   void  z80_map_read(UWORD start, UWORD end, UBYTE *memory);
+   void  z80_map_write(UWORD start, UWORD end, UBYTE *memory);
+   void  z80_add_read(UWORD start, UWORD end, int method, void *data);
+   void  z80_add_write(UWORD start, UWORD end, int method, void *data);
+   void  z80_set_in(UBYTE (*handler)(UWORD port));
+   void  z80_set_out(void (*handler)(UWORD port, UBYTE value));
+   void  z80_set_reti(void (*handler)(void));
+   void  z80_set_fetch_callback(void (*handler)(UWORD pc));
+   void  z80_end_memmap(void);
 
 #ifdef __cplusplus
 };
